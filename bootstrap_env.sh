@@ -20,6 +20,7 @@ if [ $CONTINUE == 'S' ] ; then
 	fi
 
 	apt install apache2 -y;
+	apt install pq -y;
 	HOSTS_CONF='/etc/apache2/sites-available/000-default.conf';
 	MIMES_CONF='/etc/apache2/mods-available/mime.conf';
 	CGI_CONF='/etc/apache2/conf-available/serve-cgi-bin.conf';
