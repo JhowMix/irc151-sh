@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="css/login.css?v1">
 	<title>Monitoria de Redes</title>
 </head>
 <body>
@@ -13,36 +13,45 @@
 				<h2>PROJETO SISTEMA SUPERVISORIO</h2>
 				<h6>FATEC HIRANT SANAZAR - Prof: Leandro Palha - Alunos: James Ferreira e Jonatan Santos</h6>
 			</header> -->
-			<form method="post">
-				<div class="row">
-					<div class="col-4 offset-4 login-title">
-						login
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-1 offset-4">
-						<label for="username">Usuário </label>
-					</div>
-					<div class="col-3">
-							<input type="text" name="username" id="username" />
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-1 offset-4">
-						<label for="password">Senha </label>
-					</div>
-					<div class="col-3">
-							<input type="text" name="password" id="password" />
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-4 offset-4 submit-button">
-						<input type="submit" value="Entrar">
-					</div>
-				</div>
+			<form id="loginForm" method="POST" action="shell/main.sh" onsubmit='postForm("loginForm"); return false;'>
+				<table>
+					<tr>
+						<td colspan="2">
+							<h4>login</h4>
+						</td>
+					</tr>
+					<tbody>
+						<tr>
+							<td>
+								<label for="username">Usuário </label>
+							</td>
+							<td>
+								<input type="text" name="username" id="username" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="password">Senha </label>
+							</td>
+							<td>
+								<input type="text" name="password" id="password" />
+							</td>
+						</tr>
+						<tr>
+							<td class="submit-button" colspan="2">
+								<input type="submit" value="Entrar">
+							</td>
+						</tr>
+						<tr>
+							<td class="lg-message" colspan="2">
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</form>
 		</div>
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="js/main.js?v=1"></script>
 </body>
 </html>
