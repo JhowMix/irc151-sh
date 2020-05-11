@@ -38,9 +38,9 @@ if [ $CONTINUE == 'S' ] ; then
 	mkdir -p /var/www/html/site00/shell;
 	mkdir -p /var/www/html/site00/public_html;
 
-	echo -e "<h2>TESTE CGI</h2>\n</br>\n<form method='post' action='shell/teste.sh'>\n\tCampo 1: <input type='text' name='campo_1' />\n\t</br>\n\tCampo 2: <input type='text' name='campo_2' />\n\t</br>\n\t<input type='submit'value='Enviar' />\n</form>" > /var/www/html/site00/public_html/index.html;
-	echo -e "#!/bin/bash\necho content-type: text/html\necho\nread CONTENT\necho '<h2>CGI FUNCIONANDO</h2>'\necho '<p>POST BODY:</p>'\necho '</br>'\necho \$CONTENT" > /var/www/html/site00/shell/teste.sh
-
+	rsync --remove-source-files -r . /var/www/html/site00/
+	cd /var/www/html/site00/
+	rm -rf ~/irc151-sh
 	chmod a+x /var/www/html/site00/shell/teste.sh
 	a2enmod cgid
 	a2enmod cgi
