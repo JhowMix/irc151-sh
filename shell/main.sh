@@ -10,7 +10,5 @@ RESULT=$(grep "$USERNAME&$PASSWORD" ../data/accounts)
 if [ -z "$RESULT" ]; then
   echo ''
 else
-  echo $(cat ../public_html/faces/header.html)
-  echo $(cat ../public_html/faces/map.html)
-  echo $(cat ../public_html/faces/footer.html)
+  echo $(cat ../public_html/faces/dashboard-map.html)
 fi
