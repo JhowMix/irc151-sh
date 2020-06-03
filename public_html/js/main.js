@@ -19,7 +19,7 @@ function postForm( formId ) {
       document.getElementsByClassName('lg-message')[0].textContent = 'Usuário ou senha inválidos'
       console.log('nada')
     } else
-        document.getElementsByTagName('html')[0].innerHTML = result
+      window.location.replace(window.location.href + 'faces/dashboard-map.html')
   })
 }
 

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 echo "#####################################################";
 echo "                       ATENÇÃO";
 echo "#####################################################";
@@ -9,8 +8,8 @@ read CONTINUE
 
 if [ $CONTINUE == 'S' ] ; then
 	apt remove --purge apache2 -y;
-	apt autoremove -y;
-
+	apt remove --purge samba -y;
+	
 	if [ -e '/var/www/html' ] ; then 
 		rm -rf /var/www/html;
 	fi
@@ -19,8 +18,7 @@ if [ $CONTINUE == 'S' ] ; then
 		rm -rf /etc/apache2;
 	fi
 
-	apt install apache2 -y;
-	apt install pq -y;
+	apt install apache2 pq samba -y;
 	HOSTS_CONF='/etc/apache2/sites-available/000-default.conf';
 	MIMES_CONF='/etc/apache2/mods-available/mime.conf';
 	CGI_CONF='/etc/apache2/conf-available/serve-cgi-bin.conf';
@@ -49,6 +47,18 @@ if [ $CONTINUE == 'S' ] ; then
 	service apache2 reload
 	service apache2 restart
 
+	cp /etc/samba/smb.conf /etc/samba/smb.conf.org
+	echo -e "# ======================= Global Settings =======================\n" > /etc/samba/smb.conf
+	echo "[global]" >> /etc/samba/smb.conf
+	echo "    workgroup = workgroup" >> /etc/samba/smb.conf
+	echo "    security = user" >> /etc/samba/smb.conf
+	echo "    server string = Samba Server %v" >> /etc/samba/smb.conf
+	echo "    log file = /var/log/samba/%m.log" >> /etc/samba/smb.conf
+	echo -e "    max log file = 50\n" >> /etc/samba/smb.conf
+	echo -e "# ====================== Share Definitions ======================\n" >> /etc/samba/smb.conf
+
+	service smbd restart
+	apt autoremove -y;
 	clear
 
 	echo "#####################################################";
