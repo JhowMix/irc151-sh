@@ -18,7 +18,7 @@ if [ $CONTINUE == 'S' ] ; then
 		rm -rf /etc/apache2;
 	fi
 
-	apt install apache2 pq samba -y;
+	apt install apache2 jq samba -y;
 	HOSTS_CONF='/etc/apache2/sites-available/000-default.conf';
 	MIMES_CONF='/etc/apache2/mods-available/mime.conf';
 	CGI_CONF='/etc/apache2/conf-available/serve-cgi-bin.conf';

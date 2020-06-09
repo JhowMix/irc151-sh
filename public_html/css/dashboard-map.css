@@ -64,7 +64,10 @@ a:hover {
   font-size: 20px;
   color: white;
 }
- 
+ .nav-menu {
+  transform: translateX(-2%);
+ }
+
 .map-container {
   position: relative;
   top: 50%;
@@ -74,7 +77,38 @@ a:hover {
 
 .map-container img {
   width: 60%;
-  height: 60%;
+  height: 30vw;
   padding: 20px;
   background-color: #f3333f;
+}
+
+.pc {
+  width: 10px;
+  height: 10px;
+  z-index: 9999;
+  border-radius: 10px;
+  background-color: #fc0303;
+}
+
+.pc:first-of-type, .pc:nth-of-type(2), .pc:nth-of-type(3)  {
+  position: absolute;
+  bottom: 23.5vw;
+  /* left: 34vw; */
+}
+
+.pc:last-of-type, .pc:nth-of-type(5), .pc:nth-of-type(4) {
+  position: absolute;
+  bottom: 4.7vw;
+}
+
+.pc:nth-of-type(3), .pc:last-of-type {
+  left: 48.5vw;
+}
+
+.pc:nth-of-type(2), .pc:nth-of-type(5) {
+  left: 41.3vw;
+}
+
+.pc:first-of-type, .pc:nth-of-type(4) {
+  left: 34vw;
 }
