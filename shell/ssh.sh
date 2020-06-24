@@ -1,21 +1,8 @@
 #!/bin/bash
-
-##instalar o ssh e fazer o acesso remoto 
-
-#echo deseja instalar o ssh em sua maquina? (S/N)"
-#read ENTRADA
-
-#if [ $ENTRADA = S" ]
-#then
-#    apt-get update
-#else [ $ENTRADA != N" ]
-#    echo Voce nao quer instalar!!!"
-#fi
-
+echo content-type: text/html
+echo
 
 echo "##################### MENU ################################"
-
-
 
 function atualizar()
 {

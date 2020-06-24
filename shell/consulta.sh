@@ -1,17 +1,27 @@
 #!/bin/bash
 
+echo content-type: text/html
+echo
+
 #verificar status da maquina 
 
 #verificar hostname
+echo ===============================================
+
+echo o nome da sua maquina é:
 
 hostname
 
-#ip
+echo ===============================================
+#Informação do IP da maquina
+echo seu IP é:
+ip a  | grep enp0s3 | grep brd | cut -d " " -f6 | cut -d "/" -f1 
 
-ip a | cut -d "inet" | "10.0.0.105" -f2
-
+echo ===============================================
 #consultar a memoria
+echo Memoria de sua maquina:
 
 free -m -t 
 
-
+free | tr -s ' ' | sed '/^Mem/!d' | cut -d" " -f2
+echo ===============================================
