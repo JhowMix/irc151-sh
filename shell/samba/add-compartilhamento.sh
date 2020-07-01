@@ -8,15 +8,15 @@ DIRETORIO=$(echo $CONTENT | jq -r '.path')
 USUARIOS=$(echo $CONTENT | jq -r '.usuarios')
 PASSWORD="123605"
 
-echo -e "
-[$NOME]
+echo -e "[$NOME]
   path = $DIRETORIO
   writeable = yes
   browseable = yes
   valid users = $USUARIOS
-#!!">> /etc/samba/smb.conf
+#END">> /etc/samba/smb.conf
 
 IFS=',' read -ra ARRAY_USUARIOS <<< $USUARIOS
+
 for USUARIO in "${ARRAY_USUARIOS[@]}"
 do
   useradd $USUARIO;
