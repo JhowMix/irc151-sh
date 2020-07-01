@@ -6,6 +6,8 @@ echo
 ping -c1 192.168.100.10 > /dev/null ; PC1_STATUS=$?
 
 # jq -n "{ pc1_status: $PC1_STATUS }" | jq .
+ping -c1 172.20.0.1 > /dev/null ; PC1_STATUS=$?
+
 PC01=$(head -1 ../data/hosts | tail -1 | sed 's/PC01=//')
 PC02=$(head -2 ../data/hosts | tail -1 | sed 's/PC02=//')
 PC03=$(head -3 ../data/hosts | tail -1 | sed 's/PC03=//')
