@@ -38,9 +38,11 @@ fetch(url)
       return response.text()
     })
     .then( status => {
-      console.log(status)
-      // if (status === 200) 
-        // window.location.replace("http://172.20.0.27/faces/compartilhamento.html")
+
+      if (status === 200) {
+        window.location.origin = origin
+        window.location.replace(origin + "/faces/compartilhamento.html")  
+      }
     })
     .catch( error => {
       console.log(error)
