@@ -3,11 +3,9 @@
 echo content-type: text/html
 echo
 
-<<<<<<< HEAD
-ping -c1 10.0.0.109 > /dev/null ; PC1_STATUS=$?
+ping -c1 192.168.100.10 > /dev/null ; PC1_STATUS=$?
 
-jq -n "{ pc1_status: $PC1_STATUS }" | jq .
-=======
+# jq -n "{ pc1_status: $PC1_STATUS }" | jq .
 PC01=$(head -1 ../data/hosts | tail -1 | sed 's/PC01=//')
 PC02=$(head -2 ../data/hosts | tail -1 | sed 's/PC02=//')
 PC03=$(head -3 ../data/hosts | tail -1 | sed 's/PC03=//')
@@ -23,4 +21,3 @@ ping -c1 $PC05 > /dev/null ; PC05_STATUS=$?
 ping -c1 $PC06 > /dev/null ; PC06_STATUS=$?
 
 jq -n "{ pc1_status: $PC01_STATUS, pc2_status: $PC02_STATUS, pc3_status: $PC03_STATUS, pc4_status: $PC04_STATUS, pc5_status: $PC05_STATUS, pc6_status: $PC06_STATUS }" | jq .
->>>>>>> 249212ab272ca50ca0ccc18df764f8912fbeebfb

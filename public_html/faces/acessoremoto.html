@@ -15,14 +15,17 @@
     </header> 
     <div class="dashboard">
         ACESSO REMOTO
-        <div class="conf">  
-          <form method="GET" action="dhcp.html">
-            <label for="maquina">Nome da maquina:</label><br>
-            <input type="text" id="maquina" name="maquina" value=""><br>
-            <label for="senha">senha</label><br>
-            <input type="text" id="senha" name="senha" value=""><br><br>
-            <input type="submit" value="ENVIAR">
+        <div class="conf" >  
+          <form method="POST" action="../../shell/ssh.sh" onsubmit='conecta("ssh")' id="ssh" >
+            <label for="nome">nome usuario</label><br>
+            <input type="text" id="nome" name="nome"><br>
+            <label for="IP">IP</label><br>
+            <input type="text" id="ip" name="ip"><br><br>
+            <input type="submit"  value="Enviar" >
           </form> 
+          <a href="ssh://Jonatan@192.168.100.10" target="_blank"> acesso </a> <br>
+          <a href="../../shell/ssh.sh" > informação ssh </a>
+          
 
         </div>
     </div>
@@ -32,6 +35,6 @@
         </div>
       </footer>
   </div>
-  <script type="text/javascript" src="../js/"></script>
+  <script type="text/javascript" src="../js/ssh.js"></script>
 </body>
 </html>
